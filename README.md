@@ -1,6 +1,6 @@
-# Exemple de Singleton #
+# Exemple de SQLite #
 
-En aquest projecte hi ha un exemple de Singleton a Java
+En aquest projecte hi ha un exemple de SQLite a Java
 
 ### Compilació i funcionament ###
 
