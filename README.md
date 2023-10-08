@@ -4,21 +4,18 @@ En aquest projecte hi ha un exemple de SQLite a Java
 
 ### Compilació i funcionament ###
 
-A Linux i OSX:
-
-```
-./compile.sh
-```
-
-A Windows Powershell:
-
-```
-.\compile.bat
+Cal el 'Maven' per compilar el projecte
+```bash
+mvn clean
+mvn compile
 ```
 
-Or, from Visual Studio Code:
-
+Per executar el projecte a Windows cal
+```bash
+.\run.ps1 com.project.Main
 ```
-"Terminal > Run task > Compile Project"
 
+Per executar el projecte a Linux/macOS cal
+```bash
+./run.sh com.project.Main
 ```
