@@ -36,8 +36,8 @@ public class Main {
 
         while (running) {
             int option;
-            Print action;
-            PrintHeader actionHeader;
+            Print action = Main::printOption;
+            PrintHeader actionHeader = Main::printHeader;
 
             System.out.println("=== FOR HONOR ===\n"
                     + "1) Show Tables\n"
@@ -55,23 +55,14 @@ public class Main {
                     running = false;
                     break;
                 case 1:
-                    //showTable(input, conn);
-                    action = Main::printOption;
-                    actionHeader = Main::printHeader;
                     showOption(input, conn, UtilsSQLite.listTables(conn), action, "SELECT * FROM REPLACE;", actionHeader);
                     break;
                 case 2:
-                    //showFactionCharacters(input, conn);
-                    action = Main::printOption;
-                    actionHeader = Main::printHeader;
                     showOption(input, conn, listFactions(conn), action,
                             "SELECT * FROM Character "
                             + "WHERE idFaction = (SELECT id FROM Faction WHERE name = \"REPLACE\") ;", actionHeader);
                     break;
                 case 3:
-                    //showFactionHighestAttack(input, conn);
-                    action = Main::printOption;
-                    actionHeader = Main::printHeader;
                     showOption(input, conn, listFactions(conn), action,
                             "SELECT * FROM Character "
                             + "WHERE idFaction = "
@@ -80,8 +71,6 @@ public class Main {
                             + "(SELECT id FROM Faction WHERE name = \"REPLACE\"));", actionHeader);
                     break;
                 case 4:
-                    action = Main::printOption;
-                    actionHeader = Main::printHeader;
                     showOption(input, conn, listFactions(conn), action,
                             "SELECT * FROM Character "
                             + "WHERE idFaction = "
@@ -216,7 +205,9 @@ public class Main {
      * @param actionHeader
      * @throws SQLException 
      */
-    private static void showOption(Scanner input, Connection conn, ArrayList<String> tables, Print action, String query, PrintHeader actionHeader) throws SQLException {
+    private static void showOption(Scanner input, Connection conn, ArrayList<String> tables, Print action, String query, PrintHeader actionHeader) 
+            throws SQLException {
+        
         boolean running = true;
         while (running) {
             int option;
